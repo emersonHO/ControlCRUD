@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Pagina de inicio</title>
+        <meta charset="UTF-8">
+    </head>
+    
+    <body>
+        <header th:replace="Plantilla/plantilla :: encabezado"></header>
+        <a th:href="@{/anexarAlumno}">Alumnos</a>
+        <br>
+        <div th:if="${alumnos != null and !alumnos.empty}">
+            <table border="2">
+                <tr>
+                    <th>Id</th>
+                    <th>Codigo</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Email</th>
+                    <th>Estado</th>
+                    <th>Institucion_id</th>
+                    <th>Departamento_id</th>
+                    <th>Usuario_id</th>
+                    <th>Cambiar</th>
+                    <th>Eliminar</th>
+                </tr>
+                <tr th:each="alumno : ${alumnos}">
+                    <td th:text="${alumno.id_alumno}">Muestra id</td>
+                    <td th:text="${alumno.codigo}">Muestra codigo</td>
+                    <td th:text="${alumno.nombres}">Muestra nombres</td>
+                    <td th:text="${alumno.apellidos}">Muestraapellidos</td>
+                    <td th:text="${alumno.email}">Muestra email</td>
+                    <td th:text="${alumno.estado}">Muestra estado</td>
+                    <td th:text="${alumno.institucion_id}">Muestra institucionid</td>
+                    <td th:text="${alumno.departamento_id}">Muestra departamentoid</td>
+                    <td th:text="${alumno.usuario_id}">Muestra usuarioid</td>
+                    <td><a th:href="@{/cambiarAlumno/} + ${alumno.id_alumno}" th:text="Cambiar"/></td>
+                    <td><a th:href="@{/borrarAlumno(id_alumno = ${alumno.id_alumno})}" th:text="Borrar"/></td>
+                </tr>
+            </table>
+        </div>
+        
+        <br>
+        
+        <a th:href="@{/anexarCurso}">Agregar Curso</a>
+        <div th:if="${cursos != null and !cursos.empty}">
+            <table border="2">
+                <tr>
+                    <th>Id</th>
+                    <th>Codigo</th>
+                    <th>Nombre</th>
+                    <th>Tipo</th>
+                    <th>numHorasTeoria</th>
+                    <th>numHorasPractica</th>
+                    <th>numHorasLaboratorio</th>
+                    <th>numHorasCampo</th>
+                    <th>numCreditos</th>
+                    <th>ciclo</th>
+                    <th>estado</th>
+                    <th>periodoAcademicoid</th>
+                    <th>planesEstudioid</th>
+                    <th>intitucionid</th>
+                    <th>departamentoid</th>
+                    <th>sumilla</th>
+                    <th>modalidad</th>
+                    <th>Cambiar</th>
+                    <th>Eliminar</th>
+                </tr>
+                <tr th:each="curso : ${cursos}">
+                    <td th:text="${curso.id_curso}">Muestra id</td>
+                    <td th:text="${curso.codigo}">Muestra codigo</td>
+                    <td th:text="${curso.nombre}">Muestra nombre</td>
+                    <td th:text="${curso.tipo}">Muestra tipo</td>
+                    <td th:text="${curso.num_horas_teoria}">Muestra numTeoriaH</td>
+                    <td th:text="${curso.num_horas_practica}">Muestra numHorasP</td>
+                    <td th:text="${curso.num_horas_laboratorio}">Muestra numHorasL</td>
+                    <td th:text="${curso.num_horas_campo}">Muestra numHorasC</td>
+                    <td th:text="${curso.num_creditos}">Muestra numCreditos</td>
+                    <td th:text="${curso.ciclo}">Muestra ciclo</td>
+                    <td th:text="${curso.estado}">Muestra estado</td>
+                    <td th:text="${curso.periodo_academico_id}">Muestra periodoAcaId</td>
+                    <td th:text="${curso.planes_estudio_id}">Muestra planesEstudioId</td>
+                    <td th:text="${curso.institucion_id}">Muestra institucionId</td>
+                    <td th:text="${curso.departamento_id}">Muestra departamentoid</td>
+                    <td th:text="${curso.sumilla}">Muestra sumilla</td>
+                    <td th:text="${curso.modalidad}">Muestra modalidad</td>
+                    <td><a th:href="@{/cambiarCurso/} + ${curso.id_curso}" th:text="Cambiar"/></td>
+                    <td><a th:href="@{/borrarCurso(id_curso = ${curso.id_curso})}" th:text="Borrar"/></td>
+                </tr>
+            </table>
+        </div>
+        
+        <div th:if="${alumnos == null or alumnos.empty}">
+            La lista de alumnos no tiene información
+        </div>
+        
+        <div th:if="${cursos == null or cursos.empty}">
+            La lista de cursos no tiene información
+        </div>
+        <footer th:replace="Plantilla/plantilla :: piepagina"></footer>
+    </body>
+</html>

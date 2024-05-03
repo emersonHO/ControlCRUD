@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>PlantillaTh</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <header th:fragment="encabezado">
+            <h1>Control consumidor</h1>
+        </header>
+        <footer th:fragment="piepagina">
+            <p>Creado por G2 <a href="http://google.com" target="_blank">Link de Google</a></p>
+            <form method="POST" th:action="@{/logout}">
+                <a href="#" onclick="this.parentNode.submit();">Logout</a>
+            </form>
+        </footer>
+    </body>
+</html>

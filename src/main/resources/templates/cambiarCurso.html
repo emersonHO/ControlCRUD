@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Datos del nuevo curso</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <header th:replace="Plantilla/plantilla :: encabezado"></header>
+        <h2>Datos del nuevo Curso</h2>
+        <a th:href="@{/}"> Regresar </a>
+        <br/>
+        <form th:action="@{/salvarCurso}" method="post" th:object="${curso}">
+            <input type="hidden" name="id_curso" th:field="*{id_curso}"/>
+            <br/>
+            <label for="codigo">Codigo: </label>
+            <input type="text" name="codigo" th:field="*{codigo}"/>
+            <span th:if="${#fields.hasErrors('codigo')}" th:errores="*{codigo}">Error en codigo</span>
+            <br/>
+            <label for="nombre">Nombre: </label>
+            <input type="text" name="nombre" th:field="*{nombre}"/>
+            <span th:if="${#fields.hasErrors('nombre')}" th:errores="*{nombre}">Error en nombre</span>
+            <br/>
+            <label for="tipo">Tipo: </label>
+            <input type="text" name="tipo" th:field="*{tipo}"/>
+            <span th:if="${#fields.hasErrors('tipo')}" th:errores="*{tipo}">Error en tipo</span>
+            <br/>
+            <label for="num_horas_teoria">N° H. Teoria: </label>
+            <input type="number" name="num_horas_teoria" th:field="*{num_horas_teoria}"/>
+            <span th:if="${#fields.hasErrors('num_horas_teoria')}" th:errores="*{num_horas_teoria}">Error en N° H. teoria</span>
+            <br/>
+            <label for="num_horas_practica">N° H. Practica: </label>
+            <input type="number" name="num_horas_practica" th:field="*{num_horas_practica}"/>
+            <span th:if="${#fields.hasErrors('num_horas_practica')}" th:errores="*{num_horas_practica}">Error en N° H. practica</span>
+            <br/>
+            <label for="num_horas_laboratorio">N° H. Laboratorio: </label>
+            <input type="number" name="num_horas_laboratorio" th:field="*{num_horas_laboratorio}"/>
+            <span th:if="${#fields.hasErrors('num_horas_laboratorio')}" th:errores="*{num_horas_laboratorio}">Error en N° H. laboratorio</span>
+            <br/>
+            <label for="num_horas_campo">N° H. Campo: </label>
+            <input type="number" name="num_horas_campo" th:field="*{num_horas_campo}"/>
+            <span th:if="${#fields.hasErrors('num_horas_campo')}" th:errores="*{num_horas_campo}">Error en N° H. campo</span>
+            <br/>
+            <label for="num_creditos">N° Creditos: </label>
+            <input type="number" name="num_creditos" th:field="*{num_creditos}"/>
+            <span th:if="${#fields.hasErrors('num_creditos')}" th:errores="*{num_creditos}">Error en N° creditos</span>
+            <br/>
+            <label for="ciclo">Ciclo: </label>
+            <input type="text" name="ciclo" th:field="*{ciclo}"/>
+            <span th:if="${#fields.hasErrors('ciclo')}" th:errores="*{ciclo}">Error en ciclo</span>
+            <br/>
+            <label for="estado">Estado: </label>
+            <input type="text" name="estado" th:field="*{estado}"/>
+            <span th:if="${#fields.hasErrors('estado')}" th:errores="*{estado}">Error en estado</span>
+            <br/>
+            <label for="periodo_academico_id">Periodo_id: </label>
+            <input type="number" name="periodo_academico_id" th:field="*{periodo_academico_id}"/>
+            <span th:if="${#fields.hasErrors('periodo_academico_id')}" th:errores="*{periodo_academico_id}">Error en P. Academico id</span>
+            <br/>
+            <label for="planes_estudio_id">Planes Estudio_id: </label>
+            <input type="number" name="planes_estudio_id" th:field="*{planes_estudio_id}"/>
+            <span th:if="${#fields.hasErrors('planes_estudio_id')}" th:errores="*{planes_estudio_id}">Error en P. Estudio id</span>
+            <br/>
+            <label for="institucion_id">Institucion_id: </label>
+            <input type="number" name="institucion_id" th:field="*{institucion_id}"/>
+            <span th:if="${#fields.hasErrors('institucion_id')}" th:errores="*{institucion_id}">Error en institucion id</span>                
+            <br/>
+            <label for="departamento_id">Departamentos_id: </label>
+            <input type="number" name="departamento_id" th:field="*{departamento_id}"/>
+            <span th:if="${#fields.hasErrors('departamento_id')}" th:errores="*{departamento_id}">Error en departamento id</span>
+            <br/>
+            <label for="sumilla">Sumilla: </label>
+            <input type="text" name="sumilla" th:field="*{sumilla}"/>
+            <span th:if="${#fields.hasErrors('sumilla')}" th:errores="*{sumilla}">Error en sumilla</span>
+            <br/>
+            <label for="modalidad">Modalidad: </label>
+            <input type="text" name="modalidad" th:field="*{modalidad}"/>
+            <span th:if="${#fields.hasErrors('modalidad')}" th:errores="*{modalidad}">Error en modalidad</span>
+            <br/>
+            <input type="submit" name="salvarCurso" value="Salvar"/>
+        </form>
+        <footer th:replace="Plantilla/plantilla :: piepagina"></footer>
+    </body>
+</html>
